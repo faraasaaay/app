@@ -2,8 +2,10 @@ import { Ionicons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
 import { Image } from 'expo-image';
 import { useNavigation, useRouter } from 'expo-router';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
+  ActivityIndicator,
+  Alert,
   Platform,
   StatusBar,
   StyleSheet,
@@ -28,6 +30,9 @@ export default function PlayerScreen() {
     playNextSong,
     playPreviousSong,
     stopPlayback,
+    isLoading,
+    error,
+    clearError,
   } = useAudioPlayer();
   const router = useRouter();
   const navigation = useNavigation();

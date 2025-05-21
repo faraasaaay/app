@@ -20,6 +20,7 @@ interface AudioPlayerContextType {
   stopSong: () => Promise<void>;
   stopPlayback: () => Promise<void>; // Function to stop playback and clear current song without clearing playlist
   error: string | null;
+  clearError: () => void;
 }
 
 const AudioPlayerContext = createContext<AudioPlayerContextType | undefined>(undefined);
